@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VideoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+    return redirect('fetch_video');
 });
+
+Route::get('/fetch_video',[VideoController::class,'fetch']);
+Route::get('/index_u',[VideoController::class,'index']);
+Route::post('/insert_video',[VideoController::class,'insert'])->name('insert.file');
